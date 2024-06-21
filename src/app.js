@@ -20,7 +20,7 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature-value");
   let temperature = Math.round(response.data.temperature.current);
   let description = response.data.condition.description;
-  temperatureElement.innerHTML = `The temperature is ${temperature}°C (${description})`;
+  temperatureElement.innerHTML = `${temperature}`;
 }
 
 // get the current date and time
