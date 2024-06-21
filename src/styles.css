@@ -1,0 +1,74 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/053/081/original/pexels-lisa-fotios-1088291_%281%29.jpg?1668263137");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+div {
+  display: block;
+}
+.app {
+  margin: 60px auto;
+  max-width: 800px;
+  max-height: 2000px;
+}
+.container {
+  --bs-gutter-x: 2rem;
+  --bs-gutter-y: 0;
+}
+.weather {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  color: #878787;
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+  padding: 40px;
+}
+.searchCity {
+  padding: 12px;
+}
+.form-control {
+  font-size: 20px;
+  background: #f9f7fe;
+  border: none;
+  border-radius: 6px;
+  color: rgba(39, 33, 66, 0.4);
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  line-height: 20px;
+  padding: 15px 20px;
+}
+
+.btn {
+  margin: 2px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+h1 {
+  color: #272142;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 29px;
+  line-height: 48px;
+  margin: 20px 0 10px;
+}
+.temperature {
+  color: #272142;
+  font-size: 80px;
+}
+.temperatureUnit {
+  color: #212121;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  line-height: 1;
+  position: relative;
+  top: -34px;
+}
+.forecast {
+  margin: 20px;
+}
+.heading {
+  padding: 20px;
+}
