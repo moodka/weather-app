@@ -17,7 +17,7 @@ function apiCall(city) {
 
 function displayTemperature(response) {
   console.log('response', response);
-  let temperatureElement = document.querySelector("#temperature-value");
+  let temperatureElement = document.querySelector("#current-temperature-value");
   let temperature = Math.round(response.data.temperature.current);
   let description = response.data.condition.description;
   temperatureElement.innerHTML = `The temperature is ${temperature}°C (${description})`;
