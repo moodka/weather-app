@@ -9,46 +9,46 @@ function search(event) {
 function apiCall(city) {
   console.log('city in apiCall:', city);
   let apiKey = "8a3be5990a44ba1ct658b7d148bofe73";  
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   // api call
-  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(refreshWeather);
   
 }
-
-function displayTemperature(response) {
+function refreshWeather(response) {
   console.log('response', response);
   let temperatureElement = document.querySelector("#current-temperature-value");
   let temperature = Math.round(response.data.temperature.current);
+  let descriptionElement = document.querySelector("#current-details");
   let description = response.data.condition.description;
+  let humidityElement = document.querySelector("#humidity-strong");
+  let humidity = response.data.temperature.humidity;
+  let windElement = document.querySelector("#wind-strong");
+  let wind = response.data.wind.speed;
+  let dateTimeElement = document.querySelector("#date-strong");
+  let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"></img>`
   temperatureElement.innerHTML = `${temperature}`;
+  descriptionElement.innerHTML = ` ${description}`;
+  humidityElement.innerHTML = `${humidity}%`;
+  windElement.innerHTML = `${wind} km/h`;
+  dateTimeElement.innerHTML = formatDate(date);
+  
 }
 
-// get the current date and time
-let now = new Date();
-let dateStrong = document.querySelector("#date-strong");
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let year = now.getFullYear();
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
-// display current date and time
-dateStrong.innerHTML = `${day} ${month} ${date} ${hours}:${minutes} ${year},`;
+function formatDate(date) {  
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let day = days[date.getDay()];
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hours}:${minutes}`;
+}
+
+
 
 // select the city search form
 let searchAction = document.querySelector("#city-search-form");
@@ -79,23 +79,9 @@ let weather = {
   }
 };
 
-// let city = prompt("Please enter a city");
-// city = city.toLowerCase();
-// if (weather[city] !== undefined) {
-//   let temperature = weather[city].temp;
-//   let humidity = weather[city].humidity;
-//   let celsiusTemperature = Math.round(temperature);
-//   let fahrenheitTemperature = Math.round((temperature * 9) / 5 + 32);
+apiCall("Conwy");
 
 
-// alert(
-//     `It is ${celsiusTemperature}°C (${fahrenheitTemperature}°F) in ${city} with a humidity of ${humidity}%`
-//   );
-// } else {
-//   alert(
-//     `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+sydney+${city}`
-//   );
-// }
 
 
 

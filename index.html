@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,16 +15,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Link to JavaScript and Font Awesome -->
   <script src="https://kit.fontawesome.com/5e56b28069.js" crossorigin="anonymous"></script>
-  <script src="src/app.js" defer></script>
+  
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 </head>
 
-<body>
-
-  <div class="app">
-    <!--Weather app box -->
-    <div class="weather">
-      <!--Search bar-->
+<body>  
+  <div class="app">    
+    <div class="weather">      
       <div class="searchCity text-center">
         <div class="row">
           <div class="col-13">
@@ -47,14 +43,15 @@
           <div class="col-6">
             <h1 id="current-city" class="city">Conwy</h1>
             <span class="current-details">
-              <strong id="date-strong"></strong> moderate rain <br />
-              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+              <strong id="date-strong"></strong><span id="current-details"></span><br />
+              Humidity: <strong id="humidity-strong"></strong>, Wind: <strong id="wind-strong"></strong>
             </span>
             <span class="time"></span>
           </div>
-          <div class="col-6">
-            <span id="current-temperature-icon" class="current-temperature-icon">☀️</span>
-            <span id="current-temperature-value" class="current-temperature-value">18</span>
+          <div class="col-6 temperature-container">
+            <div id="icon"></div>
+              <!-- <img  id="current-temperature-icon" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png">             -->
+            <span id="current-temperature-value" class="current-temperature-value"></span>
             <span id="current-temperature-unit" class="current-temperature-unit">°C</span>
           </div>
         </div>
@@ -79,13 +76,14 @@
         <p>
           This project was coded by
           <a href="https://github.com/moodka" target="_blank">Dani Moore</a> and is
-          <a href="https://github.com/moodka/weather-app" target="_blank"> on GitHub</a> and
+          <a href="https://github.com/moodka/weather-app" target="_blank"> open sourced on GitHub</a> and
           <a href="https://teal-starlight-af9b5a.netlify.app/" target="_blank">hosted on Netlify</a>
         </p>
       </footer>
     </div>
   </div>
   </main>
+  <script src="src/app.js" defer></script>
 </body>
 
 </html>
