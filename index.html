@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,13 +16,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Link to JavaScript and Font Awesome -->
   <script src="https://kit.fontawesome.com/5e56b28069.js" crossorigin="anonymous"></script>
-  
+
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 </head>
 
-<body>  
-  <div class="app">    
-    <div class="weather">      
+<body>
+  <div class="app">
+    <div class="weather">
       <div class="searchCity text-center">
         <div class="row">
           <div class="col-13">
@@ -49,40 +50,28 @@
             <span class="time"></span>
           </div>
           <div class="col-6 temperature-container">
-            <div id="icon"></div>                     
+            <div id="icon"></div>
             <span id="current-temperature-value" class="current-temperature-value"></span>
             <span id="current-temperature-unit" class="current-temperature-unit">°C</span>
           </div>
         </div>
         <!--Forecast-->
-        <div class="forecast text-center">
-          <div class="row row-cols-5">
-            <div class="col"><span class="day1Emoji">🌨️</span></div>
-            <div class="col"><span class="day2Emoji">🌨️</span></div>
-            <div class="col"><span class="day3Emoji">🌨️</span></div>
-            <div class="col"><span class="day4Emoji">🌨️</span></div>
-            <div class="col"><span class="day5Emoji">🌨️</span></div>
-            <div class="col"><span class="day1">Sat</span></div>
-            <div class="col"><span class="day2">Sun</span></div>
-            <div class="col"><span class="day3">Mon</span></div>
-            <div class="col"><span class="day4">Tue</span></div>
-            <div class="col"><span class="day5">Wed</span></div>
-          </div>
+        <div class="weather-forecast" id="forecast">
+          
         </div>
+        <!--Footer-->
+        <footer>
+          <p>
+            This project was coded by
+            <a href="https://github.com/moodka" target="_blank">Dani Moore</a> and is
+            <a href="https://github.com/moodka/weather-app" target="_blank"> open sourced on GitHub</a> and
+            <a href="https://teal-starlight-af9b5a.netlify.app/" target="_blank">hosted on Netlify</a>
+          </p>
+        </footer>
       </div>
-      <!--Footer-->
-      <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/moodka" target="_blank">Dani Moore</a> and is
-          <a href="https://github.com/moodka/weather-app" target="_blank"> open sourced on GitHub</a> and
-          <a href="https://teal-starlight-af9b5a.netlify.app/" target="_blank">hosted on Netlify</a>
-        </p>
-      </footer>
     </div>
-  </div>
-  </main>
-  <script src="src/app.js" defer></script>
+    </main>
+    <script src="src/app.js" defer></script>
 </body>
 
 </html>

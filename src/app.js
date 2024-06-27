@@ -34,6 +34,8 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${humidity}%`;
   windElement.innerHTML = `${wind} km/h`;
   dateTimeElement.innerHTML = formatDate(date);
+
+  getForecast(response.data.city);
   
 }
 
@@ -48,12 +50,50 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  return days[date.getDay()];
+}
+
 
 
 // select the city search form
 let searchAction = document.querySelector("#city-search-form");
 // add an event listener to the city search form, at submit run citySearch function
 searchAction.addEventListener("submit", search);
+
+function getForecast(city) {
+  let apiKey = "8a3be5990a44ba1ct658b7d148bofe73";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`
+  axios(apiUrl).then(displayForecast);
+  
+}
+
+function displayForecast(response) {  
+  console.log(response.data);
+  let forecastHtml = "";
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml = forecastHtml +
+    `
+            <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${formatDay(day.time)}</div>
+            <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature"><strong>${Math.round(day.temperature.maximum)}°C</strong></div>
+              <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}°C</div>
+            </div>
+          </div>
+    `
+    ;
+    }
+    
+  });
+  let forecastElement = document.querySelector('#forecast');
+  forecastElement.innerHTML = forecastHtml;
+}
 
 
 let weather = {
@@ -80,6 +120,9 @@ let weather = {
 };
 
 apiCall("Conwy");
+getForecast("Conwy");
+
+
 
 
 
